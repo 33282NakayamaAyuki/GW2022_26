@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ListOfThingsIWant"
         mc:Ignorable="d"
-        Title="Window1" Height="500" Width="500" ResizeMode="NoResize">
+        Title="Window1" Height="500" Width="600" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="110"/>
@@ -73,14 +73,14 @@
                Grid.Row="3"
                Margin="30,10,0,10"/>
 
-        <TextBox x:Name="priority"
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
-                 Grid.Row="3"
-                 Margin="10,22,10,23"
-                 BorderThickness="0,0,0,1"
-                 BorderBrush="Black"/>
-       
+        <ComboBox x:Name="priority"
+                  Grid.Column="1"
+                  Grid.ColumnSpan="2"
+                  Grid.Row="3"
+                  Margin="10,20,10,25"
+                  
+                  SelectionChanged="priority_SelectionChanged"/>
+
         <Label Content="メモ"
                FontSize="20"
                Grid.Column="0"
@@ -94,5 +94,28 @@
                  Grid.RowSpan="2"
                  Margin="10,22,10,23"
                  BorderBrush="Black"/>
+
+        <Image x:Name="picture"
+               Grid.Column="4"
+               Grid.ColumnSpan="2"
+               Grid.RowSpan="2"/>
+
+        <Button Content="開く..."
+                x:Name="openPictureFile"
+                Grid.Column="4"
+                Grid.Row="2"
+                Margin="10,20,10,20"/>
+
+        <Button Content="削除"
+                x:Name="deletePictureFile"
+                Grid.Column="5"
+                Grid.Row="2"
+                Margin="10,20,10,20"/>
+        
+        <Button Content="追加"
+                x:Name="addList"
+                Grid.Column="5"
+                Grid.Row="6"
+                Margin="10,10,10,10"/>
     </Grid>
 </Window>

@@ -21,5 +21,10 @@ namespace ListOfThingsIWant {
         {
             InitializeComponent();
         }
+
+        private void priority_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
