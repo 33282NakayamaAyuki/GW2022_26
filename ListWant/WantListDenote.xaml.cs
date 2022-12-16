@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,19 +13,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ListOfThingsIWant {
+namespace ListWant {
     /// <summary>
-    /// Window1.xaml の相互作用ロジック
+    /// WantListDenote.xaml の相互作用ロジック
     /// </summary>
-    public partial class Window1 : Window {
-        public Window1()
+    public partial class WantListDenote : Window {
+        public WantListDenote()
         {
             InitializeComponent();
-        }
-
-        private void priority_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            
         }
     }
 }

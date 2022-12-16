@@ -5,8 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ListOfThingsIWant"
         mc:Ignorable="d"
-        Title="ListOfThingsIWant" Height="450" Width="800">
+        Title="ListOfThingsIWant" Height="450" Width="600" ResizeMode="NoResize">
     <Grid>
-        <Frame Name="frame" NavigationUIVisibility="Hidden"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="欲しい物リスト"
+               Foreground="Aqua"
+               FontSize="50"
+               Grid.Column="1"
+               Grid.Row="0"
+               Grid.RowSpan="2"
+               Margin="5,20,5,20"/>
+
+        <Button x:Name="createCheckBox"
+                Content="追加"
+                FontSize="30"
+                Grid.Column="1"
+                Grid.Row="3"
+                Grid.RowSpan="2"
+                Margin="60,40,80,50" Click="createCheckBox_Click"/>
+
+        <Label Content="一覧"
+               Foreground="Aqua"
+               FontSize="30"
+               Grid.Column="2"
+               Grid.Row="1"
+               Margin="40,30,10,0"/>
+
+        <Button x:Name="wantList"
+                Content="欲しい物"
+                Grid.Column="2"
+                Grid.Row="2"
+                Margin="20,20,20,20" Click="wantList_Click"/>
+
+        <Button x:Name="boughtList"
+                Content="購入済"
+                Grid.Column="2"
+                Grid.Row="3"
+                Margin="20,10,20,30" Click="boughtList_Click"/>
     </Grid>
 </Window>

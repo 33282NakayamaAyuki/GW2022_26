@@ -5,28 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ListOfThingsIWant"
         mc:Ignorable="d"
-        Title="Window1" Height="500" Width="600" ResizeMode="NoResize">
+        Title="AddWantList" Height="600" Width="600" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="110"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            
-            
-            <Label Content="商品名"
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="110"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <Label Content="商品名"
                FontSize="20"
                Grid.Column="0"
                Grid.Row="0"
@@ -52,7 +52,7 @@
                  Margin="10,22,10,23"
                  BorderThickness="0,0,0,1"
                  BorderBrush="Black"/>
-        
+
         <Label Content="購入場所"
                FontSize="20"
                Grid.Column="0"            
@@ -66,7 +66,7 @@
                  Margin="10,22,10,23"
                  BorderThickness="0,0,0,1"
                  BorderBrush="Black"/>
-        
+
         <Label Content="優先度"
                FontSize="20"
                Grid.Column="0"
@@ -78,7 +78,6 @@
                   Grid.ColumnSpan="2"
                   Grid.Row="3"
                   Margin="10,20,10,25"
-                  
                   SelectionChanged="priority_SelectionChanged"/>
 
         <Label Content="メモ"
@@ -95,27 +94,45 @@
                  Margin="10,22,10,23"
                  BorderBrush="Black"/>
 
+        <Label Content="記録日:"
+               Grid.Column="4"
+               Grid.Row="0"
+               Margin="20,0,10,10"
+               />
+
+
+        <Label x:Name="registarDate"
+               Grid.Column="4"
+               Grid.Row="0"
+               Grid.ColumnSpan="2"
+               Margin="70,0,10,10"
+               />
+
         <Image x:Name="picture"
                Grid.Column="4"
+               Grid.Row="1"
                Grid.ColumnSpan="2"
                Grid.RowSpan="2"/>
 
         <Button Content="開く..."
                 x:Name="openPictureFile"
                 Grid.Column="4"
-                Grid.Row="2"
-                Margin="10,20,10,20"/>
+                Grid.Row="3"
+                Margin="10,20,10,20" 
+                Click="openPictureFile_Click"/>
 
         <Button Content="削除"
                 x:Name="deletePictureFile"
                 Grid.Column="5"
-                Grid.Row="2"
-                Margin="10,20,10,20"/>
-        
+                Grid.Row="3"
+                Margin="10,20,10,20" 
+                Click="deletePictureFile_Click"/>
+
         <Button Content="追加"
                 x:Name="addList"
                 Grid.Column="5"
                 Grid.Row="6"
-                Margin="10,10,10,10"/>
+                Margin="10,10,10,10" 
+                Click="addList_Click"/>
     </Grid>
 </Window>

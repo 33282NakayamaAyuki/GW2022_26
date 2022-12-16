@@ -21,9 +21,29 @@ namespace ListOfThingsIWant {
         public MainWindow()
         {
             InitializeComponent();
+        }
 
-            Uri uri = new Uri("/Page1.xaml", UriKind.Relative);
-            frame.Source = uri;
+        private void createCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 frm = new Window1();
+            frm.Show();
+        }
+
+        private void wantList_Click(object sender, RoutedEventArgs e)
+        {
+            Window2 frm = new Window2();
+            frm.Show();
+        }
+
+        private void boughtList_Click(object sender, RoutedEventArgs e)
+        {
+            Window3 frm = new Window3();
+            frm.Show();
+        }
+
+        private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+
         }
     }
 }

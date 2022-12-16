@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ListOfThingsIWant {
+namespace ListWant {
     class Want {
         [System.ComponentModel.DisplayName("名前")]
         public string Name { get; set; }
