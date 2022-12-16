@@ -14,28 +14,19 @@ using System.Windows.Shapes;
 
 namespace ListWant {
     /// <summary>
-    /// BoughtList.xaml の相互作用ロジック
+    /// SearchCondition.xaml の相互作用ロジック
     /// </summary>
-    public partial class BoughtList : Window {
-        public BoughtList()
+    public partial class SearchCondition : Window {
+        public SearchCondition()
         {
             InitializeComponent();
         }
 
-
-        private void WantList_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             WantListDenote frm = new WantListDenote();
             frm.Show();
             this.Hide();
         }
-        
-        private void home_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow frm = new MainWindow();
-            frm.Show();
-            this.Hide();
-        }
-
     }
 }

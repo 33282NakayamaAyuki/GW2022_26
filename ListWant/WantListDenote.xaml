@@ -18,11 +18,11 @@
         
         <Label Content="欲しい物リスト"
                FontSize="30"
-               Margin="10,10,550,10"/>
+               Margin="10,10,540,10"/>
 
         <Button x:Name="search"
                 Content="条件検索"
-                Margin="500,20,150,10"/>
+                Margin="500,20,150,10" Click="search_Click"/>
 
         <Button x:Name="selectSum"
                 Content="選択合計"
@@ -44,7 +44,7 @@
 
             <Button x:Name="addList"
                     Content="追加"
-                    FontSize="15"/>
+                    FontSize="15" Click="addList_Click"/>
 
             <Button x:Name="deleteList"
                     Content="削除"
@@ -54,12 +54,12 @@
             <Button x:Name="boughtList"
                     Content="購入済"
                     Grid.Row="2"
-                    FontSize="15"/>
+                    FontSize="15" Click="boughtList_Click"/>
 
             <Button x:Name="home"
                     Content="戻る"
                     Grid.Row="3"
-                    FontSize="15"/>
+                    FontSize="15" Click="home_Click"/>
 
         </Grid>
     </Grid>

@@ -26,7 +26,7 @@ namespace ListWant {
             InitializeComponent();
         }
 
-        private void createCheckBox_Click(object sender, RoutedEventArgs e)
+        private void addList_Click(object sender, RoutedEventArgs e)
         {
             AddWantList frm = new AddWantList();
             frm.Show();
@@ -51,6 +51,11 @@ namespace ListWant {
         private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
         {
 
+        }
+
+        private void finish_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

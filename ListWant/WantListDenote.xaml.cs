@@ -23,5 +23,33 @@ namespace ListWant {
             InitializeComponent();
             
         }
+
+        private void addList_Click(object sender, RoutedEventArgs e)
+        {
+            AddWantList frm = new AddWantList();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void boughtList_Click(object sender, RoutedEventArgs e)
+        {
+            BoughtList frm = new BoughtList();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void home_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow frm = new MainWindow();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void search_Click(object sender, RoutedEventArgs e)
+        {
+            SearchCondition frm = new SearchCondition();
+            frm.Show();
+            this.Hide();
+        }
     }
 }

@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ListWant"
         mc:Ignorable="d"
-        Title="BoughtList" Height="450" Width="800">
+        Title="BoughtList" Height="600" Width="450" ResizeMode="NoResize">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="60"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="購入済みリスト"
+               FontSize="30"
+               Margin="120,10,60,10"/>
+
+
+
+        <DataGrid x:Name="wantDenote"
+                  Grid.Row="1"/>
+
+
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="boughtList"
+                    Content="欲しい物"
+                    Grid.Row="0"
+                    FontSize="15" Click="WantList_Click"/>
+
+            <Button x:Name="home"
+                    Content="戻る"
+                    Grid.Row="1"
+                    FontSize="15" Click="home_Click"/>
+
+        </Grid>
     </Grid>
 </Window>

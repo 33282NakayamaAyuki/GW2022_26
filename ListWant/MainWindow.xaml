@@ -28,14 +28,14 @@
                Grid.RowSpan="2"
                Margin="5,20,5,20"/>
 
-        <Button x:Name="createCheckBox"
+        <Button x:Name="addList"
                 Content="追加"
                 FontSize="30"
                 Grid.Column="1"
                 Grid.Row="3"
                 Grid.RowSpan="2"
                 Margin="60,40,80,50" 
-                Click="createCheckBox_Click"
+                Click="addList_Click"
                 />
 
         <Label Content="一覧"
@@ -59,6 +59,14 @@
                 Grid.Row="3"
                 Margin="20,10,20,30" 
                 Click="boughtList_Click"
+                />
+
+        <Button x:Name="finish"
+                Content="終了"
+                Grid.Column="3"
+                Grid.Row="4"
+                Margin="20,50,20,10" 
+                Click="finish_Click"
                 />
     </Grid>
 </Window>

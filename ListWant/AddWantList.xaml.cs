@@ -53,18 +53,25 @@ namespace ListWant {
                 System.Windows.MessageBox.Show("商品名が入力されていません");
                 return;
             }
-
-            Want newWant = new Want()
+            try
             {
-                Name = productName.Text,
-                Price = int.Parse(price.Text),
-                PurchasePlace = purchasePlace.Text,
-                Priority = priority.Text,
-                RegistarDate = DateTime.Now,
-                Memo = memo.Text,
+                Want newWant = new Want()
+                {
+                    Name = productName.Text,
+                    Price = int.Parse(price.Text),
+                    PurchasePlace = purchasePlace.Text,
+                    Priority = priority.Text,
+                    RegistarDate = DateTime.Now,
+                    Memo = memo.Text,
             };
 
-            listWants.Add(newWant);
+                listWants.Add(newWant);
+            } catch (Exception)
+            {
+
+            }
+
+
 
             WantListDenote frm = new WantListDenote();
             frm.Show();
