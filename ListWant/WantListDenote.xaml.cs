@@ -12,16 +12,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WantList;
+using WantList.infosys202225DataSetTableAdapters;
 
-namespace ListWant {
+namespace WantList
+{
     /// <summary>
     /// WantListDenote.xaml の相互作用ロジック
     /// </summary>
-    public partial class WantListDenote : Window {
+    public partial class WantListDenote : Window
+    {
         public WantListDenote()
         {
             InitializeComponent();
-            
+
         }
 
         private void addList_Click(object sender, RoutedEventArgs e)
@@ -50,6 +54,16 @@ namespace ListWant {
             SearchCondition frm = new SearchCondition();
             frm.Show();
             this.Hide();
+        }
+         
+        private void WantListDenote_Loaded(object sender, RoutedEventArgs e)
+        {
+             //WantListTableAdapter.
+        }
+
+        private void deleteList_Click(object sender, RoutedEventArgs e)
+        {
+            //.RemoveAt(wantDenote.SelectedItem);
         }
     }
 }

@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CE4D983B-8FAA-4850-9930-193AD2F967F3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ListWant</RootNamespace>
+    <RootNamespace>WantList</RootNamespace>
     <AssemblyName>ListWant</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -69,6 +69,14 @@
     <Compile Include="BoughtList.xaml.cs">
       <DependentUpon>BoughtList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="infosys202225DataSet.cs">
+      <DependentUpon>infosys202225DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="infosys202225DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>infosys202225DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SearchCondition.xaml.cs">
       <DependentUpon>SearchCondition.xaml</DependentUpon>
     </Compile>
@@ -126,6 +134,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="infosys202225DataSet.xsc">
+      <DependentUpon>infosys202225DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="infosys202225DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>infosys202225DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="infosys202225DataSet.xss">
+      <DependentUpon>infosys202225DataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

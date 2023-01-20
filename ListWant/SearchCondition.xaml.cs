@@ -11,12 +11,15 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WantList;
 
-namespace ListWant {
+namespace WantList
+{
     /// <summary>
     /// SearchCondition.xaml の相互作用ロジック
     /// </summary>
-    public partial class SearchCondition : Window {
+    public partial class SearchCondition : Window
+    {
         public SearchCondition()
         {
             InitializeComponent();

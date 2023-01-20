@@ -11,12 +11,15 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WantList;
 
-namespace ListWant {
+namespace WantList
+{
     /// <summary>
     /// BoughtList.xaml の相互作用ロジック
     /// </summary>
-    public partial class BoughtList : Window {
+    public partial class BoughtList : Window
+    {
         public BoughtList()
         {
             InitializeComponent();
@@ -29,7 +32,7 @@ namespace ListWant {
             frm.Show();
             this.Hide();
         }
-        
+
         private void home_Click(object sender, RoutedEventArgs e)
         {
             MainWindow frm = new MainWindow();

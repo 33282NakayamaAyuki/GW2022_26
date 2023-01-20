@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ListWant {
-    class Want {
+namespace WantList
+{
+    class Want
+    {
         [System.ComponentModel.DisplayName("名前")]
         public string Name { get; set; }
         [System.ComponentModel.DisplayName("値段")]
@@ -13,7 +15,7 @@ namespace ListWant {
         [System.ComponentModel.DisplayName("購入場所")]
         public string PurchasePlace { get; set; }
         [System.ComponentModel.DisplayName("優先度")]
-        public string Priority{get;set;}
+        public string Priority { get; set; }
         [System.ComponentModel.DisplayName("記録日")]
         public DateTime RegistarDate { get; set; }
         [System.ComponentModel.DisplayName("メモ")]
