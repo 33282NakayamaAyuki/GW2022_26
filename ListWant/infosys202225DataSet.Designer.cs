@@ -981,10 +981,11 @@ namespace WantList.infosys202225DataSetTableAdapters {
             tableMapping.ColumnMappings.Add("優先度", "優先度");
             tableMapping.ColumnMappings.Add("記録日", "記録日");
             tableMapping.ColumnMappings.Add("メモ", "メモ");
+            tableMapping.ColumnMappings.Add("商品名", "商品名");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [WantList] WHERE (([ID] = @Original_ID) AND ((@IsNull_値段 = 1 AND [値段] IS NULL) OR ([値段] = @Original_値段)) AND ((@IsNull_購入場所 = 1 AND [購入場所] IS NULL) OR ([購入場所] = @Original_購入場所)) AND ((@IsNull_優先度 = 1 AND [優先度] IS NULL) OR ([優先度] = @Original_優先度)) AND ((@IsNull_記録日 = 1 AND [記録日] IS NULL) OR ([記録日] = @Original_記録日)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [WantList] WHERE (([ID] = @Original_ID) AND ((@IsNull_値段 = 1 AND [値段] IS NULL) OR ([値段] = @Original_値段)) AND ((@IsNull_購入場所 = 1 AND [購入場所] IS NULL) OR ([購入場所] = @Original_購入場所)) AND ((@IsNull_優先度 = 1 AND [優先度] IS NULL) OR ([優先度] = @Original_優先度)) AND ((@IsNull_記録日 = 1 AND [記録日] IS NULL) OR ([記録日] = @Original_記録日)) AND ((@IsNull_商品名 = 1 AND [商品名] IS NULL) OR ([商品名] = @Original_商品名)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_値段", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "値段", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -995,27 +996,31 @@ namespace WantList.infosys202225DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_優先度", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "優先度", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_記録日", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "記録日", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_記録日", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "記録日", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_商品名", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "商品名", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_商品名", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "商品名", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [WantList] ([値段], [購入場所], [優先度], [記録日], [メモ]) VALUES (@値段, @購入場所, @優先" +
-                "度, @記録日, @メモ);\r\nSELECT ID, 値段, 購入場所, 優先度, 記録日, メモ FROM WantList WHERE (ID = SCOP" +
-                "E_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [WantList] ([値段], [購入場所], [優先度], [記録日], [メモ], [商品名]) VALUES (@値段, @購入" +
+                "場所, @優先度, @記録日, @メモ, @商品名);\r\nSELECT ID, 値段, 購入場所, 優先度, 記録日, メモ, 商品名 FROM WantLis" +
+                "t WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@値段", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "値段", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@購入場所", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "購入場所", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@優先度", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "優先度", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@記録日", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "記録日", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@メモ", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "メモ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@商品名", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "商品名", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [WantList] SET [値段] = @値段, [購入場所] = @購入場所, [優先度] = @優先度, [記録日] = @記録日, [メモ] = @メモ WHERE (([ID] = @Original_ID) AND ((@IsNull_値段 = 1 AND [値段] IS NULL) OR ([値段] = @Original_値段)) AND ((@IsNull_購入場所 = 1 AND [購入場所] IS NULL) OR ([購入場所] = @Original_購入場所)) AND ((@IsNull_優先度 = 1 AND [優先度] IS NULL) OR ([優先度] = @Original_優先度)) AND ((@IsNull_記録日 = 1 AND [記録日] IS NULL) OR ([記録日] = @Original_記録日)));
-SELECT ID, 値段, 購入場所, 優先度, 記録日, メモ FROM WantList WHERE (ID = @ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [WantList] SET [値段] = @値段, [購入場所] = @購入場所, [優先度] = @優先度, [記録日] = @記録日, [メモ] = @メモ, [商品名] = @商品名 WHERE (([ID] = @Original_ID) AND ((@IsNull_値段 = 1 AND [値段] IS NULL) OR ([値段] = @Original_値段)) AND ((@IsNull_購入場所 = 1 AND [購入場所] IS NULL) OR ([購入場所] = @Original_購入場所)) AND ((@IsNull_優先度 = 1 AND [優先度] IS NULL) OR ([優先度] = @Original_優先度)) AND ((@IsNull_記録日 = 1 AND [記録日] IS NULL) OR ([記録日] = @Original_記録日)) AND ((@IsNull_商品名 = 1 AND [商品名] IS NULL) OR ([商品名] = @Original_商品名)));
+SELECT ID, 値段, 購入場所, 優先度, 記録日, メモ, 商品名 FROM WantList WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@値段", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "値段", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@購入場所", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "購入場所", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@優先度", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "優先度", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@記録日", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "記録日", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@メモ", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "メモ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@商品名", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "商品名", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_値段", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "値段", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_値段", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "値段", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1025,6 +1030,8 @@ SELECT ID, 値段, 購入場所, 優先度, 記録日, メモ FROM WantList WHER
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_優先度", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "優先度", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_記録日", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "記録日", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_記録日", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "記録日", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_商品名", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "商品名", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_商品名", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "商品名", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -1041,7 +1048,8 @@ SELECT ID, 値段, 購入場所, 優先度, 記録日, メモ FROM WantList WHER
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, 値段, 購入場所, 優先度, 記録日, メモ FROM WantList";
+            this._commandCollection[0].CommandText = "SELECT                      ID, 値段, 購入場所, 優先度, 記録日, メモ, 商品名\r\nFROM                " +
+                "         WantList";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

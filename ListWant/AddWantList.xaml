@@ -138,5 +138,11 @@
                 Grid.Row="6"
                 Margin="10,30,10,0" 
                 Click="addList_Click" Height="51" VerticalAlignment="Top"/>
+
+        <Button x:Name="Home"
+                Content="戻る"
+                Grid.Column="0"
+                Grid.Row="6"
+                Margin="10,30,10,10" Click="Home_Click"/>
     </Grid>
 </Window>

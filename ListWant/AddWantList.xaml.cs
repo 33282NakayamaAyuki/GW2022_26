@@ -93,5 +93,12 @@ namespace WantList
             infosys202225DataSetWantListTableAdapter = new WantList.infosys202225DataSetTableAdapters.WantListTableAdapter();
             infosys202225DataSetWantListTableAdapter.Fill(infosys202225DataSet.WantList);
         }
+
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow frm = new MainWindow();
+            frm.Show();
+            this.Hide();
+        }
     }
 }
