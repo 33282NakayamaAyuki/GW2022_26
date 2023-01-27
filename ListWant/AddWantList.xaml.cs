@@ -82,7 +82,7 @@ namespace WantList
 
             WantListDenote frm = new WantListDenote();
             frm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -98,7 +98,7 @@ namespace WantList
         {
             MainWindow frm = new MainWindow();
             frm.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

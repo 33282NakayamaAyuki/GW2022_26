@@ -32,21 +32,21 @@ namespace WantList
         {
             AddWantList frm = new AddWantList();
             frm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void wantList_Click(object sender, RoutedEventArgs e)
         {
             WantListDenote frm = new WantListDenote();
             frm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void boughtList_Click(object sender, RoutedEventArgs e)
         {
             BoughtList frm = new BoughtList();
             frm.Show();
-            this.Hide();
+            this.Close();
 
         }
 

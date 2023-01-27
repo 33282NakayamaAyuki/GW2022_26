@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,27 +20,29 @@ namespace WantList
     /// </summary>
     public partial class GridViewDetail : Window
     {
-        public GridViewDetail()
+
+        DataRowView selectedItem;
+
+        public GridViewDetail(DataRowView selectedItem)
         {
             InitializeComponent();
+            this.selectedItem = selectedItem;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
-            WantList.infosys202225DataSet infosys202225DataSet = ((WantList.infosys202225DataSet)(this.FindResource("infosys202225DataSet")));
-            // テーブル WantList にデータを読み込みます。必要に応じてこのコードを変更できます。
-            WantList.infosys202225DataSetTableAdapters.WantListTableAdapter infosys202225DataSetWantListTableAdapter = new WantList.infosys202225DataSetTableAdapters.WantListTableAdapter();
-            infosys202225DataSetWantListTableAdapter.Fill(infosys202225DataSet.WantList);
-            System.Windows.Data.CollectionViewSource wantListViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("wantListViewSource")));
-            wantListViewSource.View.MoveCurrentToFirst();
+            detailName.Text = selectedItem[1].ToString();
+            detailPrice.Text = selectedItem[2].ToString();
+            detailPlace.Text = selectedItem[3].ToString();
+            detailPriority.Text = selectedItem[4].ToString();
+            detailDate.Text = selectedItem[5].ToString();
+            detailMemo.Text = selectedItem[6].ToString();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
-            WantListDenote frm = new WantListDenote();
-            frm.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

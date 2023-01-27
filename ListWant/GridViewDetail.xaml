@@ -11,44 +11,111 @@
         <CollectionViewSource x:Key="wantListViewSource" Source="{Binding WantList, Source={StaticResource infosys202225DataSet}}"/>
     </Window.Resources>
     <Grid>
-        <Grid x:Name="grid1" DataContext="{StaticResource wantListViewSource}" HorizontalAlignment="Left" Margin="-2,2,0,-3" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="370" Width="293">
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.097"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Grid.RenderTransform>
+        <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2.296"/>
-                <ColumnDefinition Width="64.704"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="*"/>
+
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Label Content="ID:" Grid.Column="1" HorizontalAlignment="Left" Margin="0.704,3,0,3" Grid.Row="0" VerticalAlignment="Center"/>
-            <TextBox x:Name="iDTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="0" Text="{Binding ID, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="商品名:" Grid.Column="1" HorizontalAlignment="Left" Margin="0.704,3,0,3" Grid.Row="1" VerticalAlignment="Center"/>
-            <TextBox x:Name="商品名TextBox" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="1" Text="{Binding 商品名, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="値段:" Grid.Column="1" HorizontalAlignment="Left" Margin="0.704,3,0,3" Grid.Row="2" VerticalAlignment="Center"/>
-            <TextBox x:Name="値段TextBox" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="2" Text="{Binding 値段, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="購入場所:" Grid.Column="1" HorizontalAlignment="Left" Margin="0.704,3,0,3" Grid.Row="3" VerticalAlignment="Center"/>
-            <TextBox x:Name="購入場所TextBox" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="3" Text="{Binding 購入場所, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="優先度:" Grid.Column="1" HorizontalAlignment="Left" Margin="0.704,3,0,3" Grid.Row="4" VerticalAlignment="Center"/>
-            <TextBox x:Name="優先度TextBox" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="4" Text="{Binding 優先度, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="記録日:" Grid.Column="1" HorizontalAlignment="Left" Margin="0.704,3,0,3" Grid.Row="5" VerticalAlignment="Center"/>
-            <DatePicker x:Name="記録日DatePicker" Grid.Column="2" HorizontalAlignment="Left" Margin="3,4,0,4" Grid.Row="5" SelectedDate="{Binding 記録日, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
-            <Label Content="メモ:" Grid.Column="1" HorizontalAlignment="Left" Margin="0.704,3,0,3" Grid.Row="6" VerticalAlignment="Center"/>
-            <TextBox x:Name="メモTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="6" Text="{Binding メモ, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Button Content="戻る" Grid.Column="2" HorizontalAlignment="Left" Margin="122,115,-76,-83" Grid.Row="6" VerticalAlignment="Top" Width="86" Height="29" Click="Button_Click"/>
+            <Label Content="商品名"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   />
+            <TextBox x:Name="detailName"
+                     Grid.Column="1"
+                     Margin="20,15,20,15"
+                     BorderThickness="0,0,0,1"
+                     BorderBrush="Black"
+                     IsReadOnly="True"
+                     TextWrapping="Wrap"
+                     AcceptsReturn="True"
+                     VerticalScrollBarVisibility="Visible"
+                     />
+            <Label Content="値段" 
+                   Grid.Row="1" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   />
+            <TextBox x:Name="detailPrice"
+                     Grid.Column="1"
+                     Grid.Row="1"
+                     Margin="20,15,20,15"
+                     BorderThickness="0,0,0,1"
+                     BorderBrush="Black"
+                     IsReadOnly="True"
+                     />
+            <Label Content="購入場所"
+                   Grid.Row="2"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   />
+            <TextBox x:Name="detailPlace"
+                     Grid.Column="1"
+                     Grid.Row="2"
+                     Margin="20,15,20,15"
+                     BorderThickness="0,0,0,1"
+                     BorderBrush="Black"
+                     IsReadOnly="True"
+                     />
+            <Label Content="優先度"
+                   Grid.Row="3"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   />
+            <TextBox x:Name="detailPriority"
+                     Grid.Column="1"
+                     Grid.Row="3"
+                     Margin="20,15,20,15"
+                     BorderThickness="0,0,0,1"
+                     BorderBrush="Black"
+                     IsReadOnly="True"
+                     />
+            <Label Content="記録日"
+                   Grid.Row="4"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   />
+            <TextBox x:Name="detailDate"
+                     Grid.Column="1"
+                     Grid.Row="4"
+                     Margin="20,15,20,15"
+                     BorderThickness="0,0,0,1"
+                     BorderBrush="Black"
+                     IsReadOnly="True"
+                     />
+            <Label Content="メモ"
+                   Grid.Row="5"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   />
+            <TextBox x:Name="detailMemo"
+                     Grid.Column="1"
+                     Grid.Row="5"
+                     Grid.RowSpan="2"
+                     Margin="20,15,20,15"
+                     IsReadOnly="True"
+                     TextWrapping="Wrap"
+                     AcceptsReturn="True"
+                     VerticalScrollBarVisibility="Visible"
+                     />
+
+            <Button x:Name="Back"
+                    Content="戻る"
+                    FontSize="10"
+                    Grid.Column="0"
+                    Grid.Row="6"
+                    Margin="0,20,20,0"
+                    Click="Back_Click"/>
+
         </Grid>
 
     </Grid>

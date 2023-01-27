@@ -10,36 +10,36 @@
         <local:infosys202225DataSet x:Key="infosys202225DataSet"/>
         <CollectionViewSource x:Key="wantListViewSource" Source="{Binding WantList, Source={StaticResource infosys202225DataSet}}"/>
     </Window.Resources>
-    <Grid>
+    <Grid >
         <Grid x:Name="grid1" DataContext="{StaticResource wantListViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="369" Width="292">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <TextBox x:Name="iDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding ID, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="商品名:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-            <TextBox x:Name="商品名TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding 商品名, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+
+            <Label Content="商品名:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" />
+            <TextBox x:Name="editName" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding 商品名, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" BorderThickness="0,0,0,1"/>
             <Label Content="値段:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-            <TextBox x:Name="値段TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding 値段, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="editMoney" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3,5,0,5" Grid.Row="2" Text="{Binding 値段, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="92" BorderThickness="0,0,0,1"/>
+            <Label Content="円" Grid.Column="1" Margin="100,4,78,10" Grid.Row="2"/>
             <Label Content="購入場所:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-            <TextBox x:Name="購入場所TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding 購入場所, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="editPlace" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding 購入場所, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200" BorderThickness="0,0,0,1"/>
             <Label Content="優先度:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
-            <TextBox x:Name="優先度TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding 優先度, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <ComboBox x:Name="editPriority" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding 優先度, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
             <Label Content="記録日:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
-            <DatePicker x:Name="記録日DatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="5" SelectedDate="{Binding 記録日, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
+            <DatePicker x:Name="editDate" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="5" SelectedDate="{Binding 記録日, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
             <Label Content="メモ:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
-            <TextBox x:Name="メモTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding メモ, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Button Content="更新" Grid.Column="1" HorizontalAlignment="Left" Margin="130,131,-80,-105" Grid.Row="6" VerticalAlignment="Top" Width="80" Height="30" Click="Button_Click"/>
+            <TextBox x:Name="editMemo" Grid.Column="1" HorizontalAlignment="Left" Height="80" Margin="3" Grid.Row="6" Text="{Binding メモ, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+            <Button Content="更新" x:Name="update" Grid.Column="1" HorizontalAlignment="Left" Margin="122,136,-43,-76" Grid.Row="6" VerticalAlignment="Top" Width="80" Height="30" Click="Update_Click"/>
         </Grid>
 
     </Grid>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,27 +20,56 @@ namespace WantList
     /// </summary>
     public partial class EditWindow : Window
     {
-        public EditWindow()
+
+        WantList.infosys202225DataSet infosys202225DataSet;
+
+        WantList.infosys202225DataSetTableAdapters.WantListTableAdapter infosys202225DataSetWantListTableAdapter;
+
+        System.Windows.Data.CollectionViewSource wantListViewSource;
+
+        DataRowView selectedItem;
+
+        public EditWindow(DataRowView selectedItem)
         {
             InitializeComponent();
+            this.selectedItem = selectedItem;
+            AddCombobox();
+            editPriority.SelectedItem = selectedItem[4].ToString();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
-            WantList.infosys202225DataSet infosys202225DataSet = ((WantList.infosys202225DataSet)(this.FindResource("infosys202225DataSet")));
-            // テーブル WantList にデータを読み込みます。必要に応じてこのコードを変更できます。
-            WantList.infosys202225DataSetTableAdapters.WantListTableAdapter infosys202225DataSetWantListTableAdapter = new WantList.infosys202225DataSetTableAdapters.WantListTableAdapter();
+            infosys202225DataSet = ((WantList.infosys202225DataSet)(this.FindResource("infosys202225DataSet")));
+            // テーブル CarReport にデータを読み込みます。必要に応じてこのコードを変更できます。
+            infosys202225DataSetWantListTableAdapter = new WantList.infosys202225DataSetTableAdapters.WantListTableAdapter();
             infosys202225DataSetWantListTableAdapter.Fill(infosys202225DataSet.WantList);
-            System.Windows.Data.CollectionViewSource wantListViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("wantListViewSource")));
-            wantListViewSource.View.MoveCurrentToFirst();
+
+            editName.Text = selectedItem[1].ToString();
+            editMoney.Text = selectedItem[2].ToString();
+            editPlace.Text = selectedItem[3].ToString();
+            editDate.Text = selectedItem[5].ToString();
+            editMemo.Text = selectedItem[6].ToString();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Update_Click(object sender, RoutedEventArgs e)
         {
-            WantListDenote frm = new WantListDenote();
-            frm.Show();
-            this.Hide();
+            //データベース更新
+            selectedItem[1] = editName.Text;
+            selectedItem[2] = editMoney.Text;
+            selectedItem[3] = editPlace.Text;
+            selectedItem[5] = editDate.Text;
+            selectedItem[6] = editMemo.Text;
+            infosys202225DataSetWantListTableAdapter.Update(infosys202225DataSet.WantList);
+            this.Close();
+        }
+
+        public void AddCombobox()
+        {
+            editPriority.Items.Add("☆☆☆☆☆");
+            editPriority.Items.Add("☆☆☆☆");
+            editPriority.Items.Add("☆☆☆");
+            editPriority.Items.Add("☆☆");
+            editPriority.Items.Add("☆");
         }
     }
 }

@@ -30,14 +30,14 @@ namespace WantList
         {
             WantListDenote frm = new WantListDenote();
             frm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void home_Click(object sender, RoutedEventArgs e)
         {
             MainWindow frm = new MainWindow();
             frm.Show();
-            this.Hide();
+            this.Close();
         }
 
     }

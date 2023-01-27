@@ -29,7 +29,7 @@ namespace WantList
         {
             WantListDenote frm = new WantListDenote();
             frm.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

@@ -29,6 +29,8 @@ namespace WantList
 
         System.Windows.Data.CollectionViewSource wantListViewSource;
 
+        //DataGridRow drv;
+
         public WantListDenote()
         {
             InitializeComponent();
@@ -40,28 +42,32 @@ namespace WantList
         {
             AddWantList frm = new AddWantList();
             frm.Show();
-            this.Hide();
+            this.Close();
+            infosys202225DataSetWantListTableAdapter.Update(infosys202225DataSet.WantList);
         }
 
         private void boughtList_Click(object sender, RoutedEventArgs e)
         {
             BoughtList frm = new BoughtList();
             frm.Show();
-            this.Hide();
+            this.Close();
+            infosys202225DataSetWantListTableAdapter.Update(infosys202225DataSet.WantList);
         }
 
         private void home_Click(object sender, RoutedEventArgs e)
         {
             MainWindow frm = new MainWindow();
             frm.Show();
-            this.Hide();
+            this.Close();
+            infosys202225DataSetWantListTableAdapter.Update(infosys202225DataSet.WantList);
         }
 
         private void search_Click(object sender, RoutedEventArgs e)
         {
             SearchCondition frm = new SearchCondition();
             frm.Show();
-            this.Hide();
+            this.Close();
+            infosys202225DataSetWantListTableAdapter.Update(infosys202225DataSet.WantList);
         }
          
         private void WantListDenote_Loaded(object sender, RoutedEventArgs e)
@@ -84,32 +90,19 @@ namespace WantList
 
         private void wantListDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var elem = e.MouseDevice.DirectlyOver as FrameworkElement;
-            if (elem != null)
-            {
-                DataGridCell cell = elem.Parent as DataGridCell;
-                if (cell == null)
-                {
-                    // ParentでDataGridCellが拾えなかった時はTemplatedParentを参照
-                    // （Borderをダブルクリックした時）
-                    cell = elem.TemplatedParent as DataGridCell;
-                }
-                if (cell != null)
-                {
-                    // ここでcellの内容を処理
-                    // （cell.DataContextにバインドされたものが入っているかと思います）
-                    GridViewDetail frm = new GridViewDetail();
-                    frm.Show();
-                    this.Hide();
-                }
-            }
+
+            DataRowView drv = (DataRowView)wantListViewSource.View.CurrentItem;
+            GridViewDetail frm = new GridViewDetail(drv);
+            frm.ShowDialog();
+            infosys202225DataSetWantListTableAdapter.Update(infosys202225DataSet.WantList);
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            EditWindow frm = new EditWindow();
-            frm.Show();
-            this.Hide();
+            DataRowView drv = (DataRowView)wantListViewSource.View.CurrentItem;
+            EditWindow frm = new EditWindow(drv);
+            frm.ShowDialog();
+            infosys202225DataSetWantListTableAdapter.Update(infosys202225DataSet.WantList);
         }
     }
 }

@@ -14,7 +14,7 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="60"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
@@ -35,23 +35,22 @@
                 Margin="530,20,20,10"/>
         <DataGrid x:Name="wantListDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" Grid.Row="1" RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" MouseDoubleClick="wantListDataGrid_MouseDoubleClick"  IsReadOnly="true">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="iDColumn" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="商品名Column" Binding="{Binding 商品名}" Header="商品名" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="値段Column" Binding="{Binding 値段}" Header="値段" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="購入場所Column" Binding="{Binding 購入場所}" Header="購入場所" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="優先度Column" Binding="{Binding 優先度}" Header="優先度" Width="SizeToHeader"/>
-                <DataGridTemplateColumn x:Name="記録日Column" Header="記録日" Width="SizeToHeader">
+                <DataGridTextColumn x:Name="iDColumn" Binding="{Binding ID}" Header="ID"  Width="40"/>
+                <DataGridTextColumn x:Name="商品名Column" Binding="{Binding 商品名}" Header="商品名" Width="335"/>
+                <DataGridTextColumn x:Name="値段Column" Binding="{Binding 値段}" Header="値段" Width="70" />
+                <DataGridTextColumn x:Name="優先度Column" Binding="{Binding 優先度}" Header="優先度" Width="70"/>
+                <DataGridTextColumn x:Name="記録日Column" Binding="{Binding 記録日}" Header="記録日" Width="65" />
+                <!--<DataGridTemplateColumn x:Name="記録日Column" Header="記録日" Width="100" IsReadOnly ="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <DatePicker SelectedDate="{Binding 記録日, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn x:Name="メモColumn" Binding="{Binding メモ}" Header="メモ" Width="SizeToHeader"/>
+                </DataGridTemplateColumn>-->
                 <DataGridTemplateColumn Header="編集">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="編集" Click="Edit_Click" Tag="{Binding}" IsEnabled="{Binding Actionable}"/>
+                            <Button Content="編集" Click="Edit_Click" Tag="{Binding}" IsEnabled="{Binding Actionable}" Width="35"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
