@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WantList"
         mc:Ignorable="d"
         Title="BoughtList" Height="600" Width="450" ResizeMode="NoResize">
-    <Grid>
+    <Grid Loaded="Grid_Loaded">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="60"/>

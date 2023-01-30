@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +22,17 @@ namespace WantList
     public partial class MainWindow : Window
     {
 
+        //WantList.infosys202225DataSet infosys202225DataSet;
+
+        //WantList.infosys202225DataSetTableAdapters.WantListTableAdapter infosys202225DataSetWantListTableAdapter;
+
+        System.Windows.Data.CollectionViewSource wantListViewSource;
 
         public MainWindow()
         {
             InitializeComponent();
-
+            wantListViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("WantListViewSource")));
+            wantListViewSource.View.MoveCurrentToFirst();
         }
 
         private void addList_Click(object sender, RoutedEventArgs e)
@@ -44,10 +51,10 @@ namespace WantList
 
         private void boughtList_Click(object sender, RoutedEventArgs e)
         {
-            BoughtList frm = new BoughtList();
+            DataRowView drv = (DataRowView)wantListViewSource.View.CurrentItem;
+            BoughtList frm = new BoughtList(drv);
             frm.Show();
             this.Close();
-
         }
 
         private void Page_SizeChanged(object sender, SizeChangedEventArgs e)

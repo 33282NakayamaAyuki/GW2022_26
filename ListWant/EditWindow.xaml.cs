@@ -25,8 +25,6 @@ namespace WantList
 
         WantList.infosys202225DataSetTableAdapters.WantListTableAdapter infosys202225DataSetWantListTableAdapter;
 
-        System.Windows.Data.CollectionViewSource wantListViewSource;
-
         DataRowView selectedItem;
 
         public EditWindow(DataRowView selectedItem)
@@ -34,7 +32,7 @@ namespace WantList
             InitializeComponent();
             this.selectedItem = selectedItem;
             AddCombobox();
-            editPriority.SelectedItem = selectedItem[4].ToString();
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -44,21 +42,22 @@ namespace WantList
             infosys202225DataSetWantListTableAdapter = new WantList.infosys202225DataSetTableAdapters.WantListTableAdapter();
             infosys202225DataSetWantListTableAdapter.Fill(infosys202225DataSet.WantList);
 
-            editName.Text = selectedItem[1].ToString();
-            editMoney.Text = selectedItem[2].ToString();
-            editPlace.Text = selectedItem[3].ToString();
-            editDate.Text = selectedItem[5].ToString();
-            editMemo.Text = selectedItem[6].ToString();
+            editName.Text = this.selectedItem.Row[1].ToString();
+            editMoney.Text = this.selectedItem.Row[2].ToString();
+            editPlace.Text = this.selectedItem.Row[3].ToString();
+            editPriority.SelectedItem = this.selectedItem.Row[4].ToString();
+            editDate.Text = this.selectedItem.Row[5].ToString();
+            editMemo.Text = this.selectedItem.Row[6].ToString();
         }
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             //データベース更新
-            selectedItem[1] = editName.Text;
-            selectedItem[2] = editMoney.Text;
-            selectedItem[3] = editPlace.Text;
-            selectedItem[5] = editDate.Text;
-            selectedItem[6] = editMemo.Text;
+            this.selectedItem.Row[1] = editName.Text;
+            this.selectedItem.Row[2] = editMoney.Text;
+            this.selectedItem.Row[3] = editPlace.Text;
+            this.selectedItem.Row[5] = editDate.Text;
+            this.selectedItem.Row[6] = editMemo.Text;
             infosys202225DataSetWantListTableAdapter.Update(infosys202225DataSet.WantList);
             this.Close();
         }

@@ -67,6 +67,7 @@ namespace WantList
                 newRow[4] = priority.Text;
                 newRow[5] = DateTime.Now;
                 newRow[6] = memo.Text;
+                newRow[7] = 0;
                 //データセットへ新しいレコードを追加
                 infosys202225DataSet.WantList.Rows.Add(newRow);
                 //データベース更新

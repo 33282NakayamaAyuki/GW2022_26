@@ -5,10 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WantList"
         mc:Ignorable="d"
-        Title="WantList" Height="450" Width="600" ResizeMode="NoResize">
+        Title="欲しい物リスト" Height="450" Width="600" ResizeMode="NoResize">
     <Window.Background>
         <ImageBrush/>
     </Window.Background>
+    <Window.Resources>
+        <local:infosys202225DataSet x:Key="infosys202225DataSet"/>
+        <CollectionViewSource x:Key="WantListViewSource" Source="{Binding WantList, Source={StaticResource infosys202225DataSet}}"/>
+    </Window.Resources>
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30*"/>

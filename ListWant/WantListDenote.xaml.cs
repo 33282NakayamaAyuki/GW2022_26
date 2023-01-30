@@ -29,13 +29,20 @@ namespace WantList
 
         System.Windows.Data.CollectionViewSource wantListViewSource;
 
-        //DataGridRow drv;
-
         public WantListDenote()
         {
             InitializeComponent();
             wantListViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("WantListViewSource")));
             wantListViewSource.View.MoveCurrentToFirst();
+        }
+
+
+        private void WantListDenote_Loaded(object sender, RoutedEventArgs e)
+        {
+            infosys202225DataSet = ((WantList.infosys202225DataSet)(this.FindResource("infosys202225DataSet")));
+            // テーブル CarReport にデータを読み込みます。必要に応じてこのコードを変更できます。
+            infosys202225DataSetWantListTableAdapter = new WantList.infosys202225DataSetTableAdapters.WantListTableAdapter();
+            infosys202225DataSetWantListTableAdapter.Fill(infosys202225DataSet.WantList);
         }
 
         private void addList_Click(object sender, RoutedEventArgs e)
@@ -48,9 +55,16 @@ namespace WantList
 
         private void boughtList_Click(object sender, RoutedEventArgs e)
         {
-            BoughtList frm = new BoughtList();
-            frm.Show();
-            this.Close();
+            if (wantListDataGrid.SelectedItem != null)
+            {
+                //選択行の取り出し
+                DataRowView drv = (DataRowView)wantListViewSource.View.CurrentItem;
+                drv.Row.ItemArray[7] = 1;
+            }
+
+            //BoughtList frm = new BoughtList();
+            //frm.Show();
+            //this.Close();
             infosys202225DataSetWantListTableAdapter.Update(infosys202225DataSet.WantList);
         }
 
@@ -69,21 +83,16 @@ namespace WantList
             this.Close();
             infosys202225DataSetWantListTableAdapter.Update(infosys202225DataSet.WantList);
         }
-         
-        private void WantListDenote_Loaded(object sender, RoutedEventArgs e)
-        {
-            infosys202225DataSet = ((WantList.infosys202225DataSet)(this.FindResource("infosys202225DataSet")));
-            // テーブル CarReport にデータを読み込みます。必要に応じてこのコードを変更できます。
-            infosys202225DataSetWantListTableAdapter = new WantList.infosys202225DataSetTableAdapters.WantListTableAdapter();
-            infosys202225DataSetWantListTableAdapter.Fill(infosys202225DataSet.WantList);
-        }
+
 
         private void deleteList_Click(object sender, RoutedEventArgs e)
         {
-            //選択行の取り出し
-            DataRowView drv = (DataRowView)wantListViewSource.View.CurrentItem;
-            //選択されたレコードの削除
-            drv.Delete();
+            if (wantListDataGrid.SelectedItem != null)
+            {
+                //選択行の取り出し
+                DataRowView drv = (DataRowView)wantListViewSource.View.CurrentItem;
+                drv.Delete();
+            }
             //データベース更新
             infosys202225DataSetWantListTableAdapter.Update(infosys202225DataSet.WantList);
         }

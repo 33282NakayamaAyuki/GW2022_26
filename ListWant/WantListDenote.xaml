@@ -80,7 +80,8 @@
             <Button x:Name="boughtList"
                     Content="購入済"
                     Grid.Row="2"
-                    FontSize="15" Click="boughtList_Click"/>
+                    FontSize="15" Click="boughtList_Click"
+                    />
 
             <Button x:Name="home"
                     Content="戻る"

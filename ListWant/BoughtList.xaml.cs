@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,13 @@ namespace WantList
     /// </summary>
     public partial class BoughtList : Window
     {
-        public BoughtList()
+
+        DataRowView selectedItem;
+
+        public BoughtList(DataRowView selectedItem)
         {
             InitializeComponent();
+            this.selectedItem = selectedItem;
         }
 
 
@@ -40,5 +45,9 @@ namespace WantList
             this.Close();
         }
 
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
